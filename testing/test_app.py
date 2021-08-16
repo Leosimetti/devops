@@ -23,8 +23,9 @@ def test_app(client: FlaskClient):
 
         moscow_time = datetime.now(pytz.timezone('Europe/Moscow'))
         expected_time = moscow_time.strftime("%H:%M:%S")
+        encoded_time = f"It is currently {expected_time} in Moscow".encode()
 
-        assert f"It is currently {expected_time} in Moscow".encode() in res.data
+        assert encoded_time in res.data
         assert b"Vitaliy Korbashov" in res.data
 
         time.sleep(5)

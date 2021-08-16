@@ -9,62 +9,56 @@
 - Python
 - Flask
 - Jinja2
-- Default PyCharm linters for all files
+- pytest
+- Default PyCharm linters for all kinds of files
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](http://10.90.138.134:5000/)
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if
-the currect project doesn't require testing.**
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+Install python and pip
+```shell
+$ sudo apt install python3 python3-pip python3-venv
+```
 
 ### Setup
+Installing dependencies
+```shell
+$ git clone https://github.com/Leosimetti/devops
+$ cd devops
+```
 
 ### Install
+```shell
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip3 install -r requirements.txt
+```
 
 ### Usage
-
+```shell
+$ pyhton3 app_python/app.py
+```
 ### Run tests
+```shell
+$ pytest
+```
 
 ### Deployment
+You can deploy the application in as a docker image
+```shell
+TBD
+```
 
-## Authors
+## Author
 
-👤 **Author1**
+👤 **Vitaliy Korbashov, BS18-SE-01**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](../../issues/).
-
-## Show your support
-
-Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
-## 📝 License
-
-This project is [MIT](./MIT.md) licensed.
+- Innopolis - [v.korbashov@innopolis.university]()
+- GitHub: [@Leosimetti](https://github.com/Leosimetti)
+- Telegram: [@Leosimonetti](https://t.me/Leosimonetti)
