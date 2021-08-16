@@ -1,3 +1,4 @@
+import time
 from datetime import datetime
 
 import pytest
@@ -16,11 +17,14 @@ def client():
 
 
 def test_app(client: FlaskClient):
-    res = client.get("/")
-    assert res.status_code == 200
+    for _ in range(2): # The loop is used to simulate a page refresh
+        res = client.get("/")
+        assert res.status_code == 200
 
-    moscow_time = datetime.now(pytz.timezone('Europe/Moscow'))
-    expected_time = moscow_time.strftime("%H:%M:%S")
+        moscow_time = datetime.now(pytz.timezone('Europe/Moscow'))
+        expected_time = moscow_time.strftime("%H:%M:%S")
 
-    assert f"It is currently {expected_time} in Moscow".encode() in res.data
-    assert b"Vitaliy Korbashov" in res.data
+        assert f"It is currently {expected_time} in Moscow".encode() in res.data
+        assert b"Vitaliy Korbashov" in res.data
+
+        time.sleep(5)
