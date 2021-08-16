@@ -27,7 +27,6 @@ $ sudo apt install python3 python3-pip python3-venv
 ```
 
 ### Setup
-Installing dependencies
 ```shell
 $ git clone https://github.com/Leosimetti/devops
 $ cd devops
@@ -46,11 +45,11 @@ $ pyhton3 app_python/app.py
 ```
 ### Run tests
 ```shell
+$ cd app_python
 $ pytest
 ```
 
-### Deployment
-You can deploy the application in as a docker image
+### Docker
 ```shell
 TBD
 ```
