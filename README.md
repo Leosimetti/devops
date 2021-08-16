@@ -9,7 +9,7 @@
 - Python
 - Flask
 - Jinja2
-- Default PyCharm linters for .py .md
+- Default PyCharm linters for all files
 
 ## Live Demo
 

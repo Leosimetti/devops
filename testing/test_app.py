@@ -17,7 +17,7 @@ def client():
 
 
 def test_app(client: FlaskClient):
-    for _ in range(2): # The loop is used to simulate a page refresh
+    for _ in range(2):  # The loop is used to simulate a page refresh
         res = client.get("/")
         assert res.status_code == 200
 
