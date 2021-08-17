@@ -17,7 +17,7 @@ def client():
 
 
 def test_app(client: FlaskClient):
-    for _ in range(2):  # The loop is used to simulate a page refresh
+    for _ in range(3):  # The loop is used to simulate a page refresh
         res = client.get("/")
         assert res.status_code == 200
 
@@ -28,4 +28,4 @@ def test_app(client: FlaskClient):
         assert encoded_time in res.data
         assert b"Vitaliy Korbashov" in res.data
 
-        time.sleep(5)
+        time.sleep(0.5)

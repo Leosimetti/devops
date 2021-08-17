@@ -10,7 +10,7 @@
 - Flask
 - Jinja2
 - pytest
-- Default PyCharm linters for all kinds of files
+- pylint
 
 ## Live Demo
 
@@ -45,7 +45,6 @@ $ pyhton3 app_python/app.py
 ```
 ### Run tests
 ```shell
-$ cd app_python
 $ pytest
 ```
 
