@@ -34,6 +34,7 @@ $ cd devops
 
 ### Install
 ```shell
+$ cd app_python
 $ python3 -m venv venv
 $ source venv/bin/activate
 $ pip3 install -r requirements.txt
@@ -41,7 +42,7 @@ $ pip3 install -r requirements.txt
 
 ### Usage
 ```shell
-$ pyhton3 app_python/app.py
+$ pyhton3 app.py
 ```
 ### Run tests
 ```shell
