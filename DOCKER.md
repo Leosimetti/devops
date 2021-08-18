@@ -9,7 +9,7 @@
 - Using appropriate base images
 > It is a good idea to use official images with needed tools installed
 > rather than installing all of them necessary dependencies manually.
-> Moreover, alpine versions of images allow for great image size reduction.
+> Moreover, alpine/slim versions of images allow for great image size reduction.
 - Reducing the number of layers and properly ordering them
 > As each command creates a new layers - switching some commands around 
 can reduce the build speed vi the layer caching.

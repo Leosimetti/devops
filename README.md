@@ -15,7 +15,7 @@
 
 ## Live Demo
 
-[Live Demo Link](http://10.90.138.134:5000/)
+[Live Demo Link](http://10.90.138.134)
 
 ## Getting Started
 
@@ -43,7 +43,7 @@ $ pip3 install -r requirements.txt
 
 ### Usage
 ```shell
-$ pyhton3 app.py
+$ pyhton3 main.py
 ```
 ### Run tests
 ```shell
@@ -52,7 +52,8 @@ $ pytest
 
 ### Docker
 ```shell
-TBD
+docker pull leosimonetti/devops-lab1-flask
+docker run -p 5000:5000 leosimonetti/devops-lab1-flask
 ```
 
 ## Author
