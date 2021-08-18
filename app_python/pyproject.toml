@@ -2,7 +2,7 @@
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = [
-    "--pyargs app_python"
+    "--pyargs src"
 ]
 testpaths = [
     "testing"

@@ -5,7 +5,7 @@ import pytest
 import pytz
 from flask.testing import FlaskClient
 
-from app_python import create_app
+from app_python.src import create_app
 
 
 @pytest.fixture

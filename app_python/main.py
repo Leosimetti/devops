@@ -1,10 +1,10 @@
 from gevent.pywsgi import WSGIServer
-from app_python import create_app
+from src import create_app
 import os
 
-app = create_app()
-
 if __name__ == '__main__':
+    app = create_app()
+
     PORT = int(os.environ.get("PORT", "5000"))
     HOST_IP = os.environ.get("HOST_IP", "0.0.0.0")
 
