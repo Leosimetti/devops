@@ -9,8 +9,9 @@
 - Python
 - Flask
 - Jinja2
+- Gevent
 - pytest
-- pylint
+- pylint/Dockerfile Linter
 
 ## Live Demo
 
