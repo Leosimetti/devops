@@ -1,9 +1,6 @@
 # pyproject.toml
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = [
-    "--pyargs src"
-]
 testpaths = [
     "testing"
 ]
