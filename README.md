@@ -22,18 +22,22 @@
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+
 Install python and pip
+
 ```shell
 $ sudo apt install python3 python3-pip python3-venv
 ```
 
 ### Setup
+
 ```shell
 $ git clone https://github.com/Leosimetti/devops
 $ cd devops
 ```
 
 ### Install
+
 ```shell
 $ cd app_python
 $ python3 -m venv venv
@@ -42,18 +46,25 @@ $ pip3 install -r requirements.txt
 ```
 
 ### Usage
+
+Set the `PORT` and `HOST_IP` environmental variables to the desired values
+
 ```shell
+$ cd app_python
 $ pyhton3 main.py
 ```
+By default, the application will be available at [http://localhost:5000]() 
 ### Run tests
+
 ```shell
 $ pytest
 ```
 
 ### Docker
+
 ```shell
-docker pull leosimonetti/devops-lab1-flask
-docker run -p 5000:5000 leosimonetti/devops-lab1-flask
+$ docker pull leosimonetti/devops-lab1-flask
+$ docker run -p 5000:5000 leosimonetti/devops-lab1-flask
 ```
 
 ## Author

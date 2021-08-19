@@ -39,11 +39,6 @@ out to be the best choice for such a simple one-page web app.
 > Environmental variables are a good way to pass arguments.
 > In this project application IP and PORT are passed this way.
 
-- Making Tests folder a part of the application code
-
-> Directory with tests was inlined into the application package
-> as it is directly related to it. (tests use the `create_app()` method)
-
 - Following naming conventions
 
 > snake_case for methods; PascalCase for classes; ALL_CAPS for constants
@@ -55,5 +50,5 @@ out to be the best choice for such a simple one-page web app.
 
 - Installing a proper server for Flask
 
-> The provided development server is not designed to used for 
+> The provided development server is not designed to used for
 > production. As a result, it is not very efficient, stable, and secure,
