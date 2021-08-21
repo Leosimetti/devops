@@ -2,7 +2,7 @@
 
 > A simple one-page app that shows current time in Moscow.
 
-![screenshot](./app_screenshot.png)
+![screenshot](![image](https://user-images.githubusercontent.com/42554566/130326487-4e9b7ab1-3842-4498-9515-881b7939e862.png)
 
 ## Built With
 
