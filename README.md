@@ -60,11 +60,24 @@ By default, the application will be available at [http://localhost:5000]()
 $ pytest
 ```
 
-### Docker
+## Docker
 
+### Run in Docker
 ```shell
 $ docker pull leosimonetti/devops-lab1-flask
 $ docker run -p 5000:5000 leosimonetti/devops-lab1-flask
+```
+
+### Build and run tests
+```shell
+$ cd app_python
+$ docker build --target test . 
+```
+
+### Build and run
+```shell
+$ docker build --tag clock_app --target build .
+$ docker run -p 5000:5000 clock_app
 ```
 
 ## Author
