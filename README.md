@@ -57,6 +57,7 @@ By default, the application will be available at [http://localhost:5000]()
 ### Run tests
 
 ```shell
+$ cd app_python
 $ pytest
 ```
 
@@ -76,6 +77,7 @@ $ docker build --target test .
 
 ### Build and run
 ```shell
+$ cd app_python
 $ docker build --tag clock_app --target build .
 $ docker run -p 5000:5000 clock_app
 ```
