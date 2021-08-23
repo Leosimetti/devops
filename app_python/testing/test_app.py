@@ -15,7 +15,7 @@ def test_app(client: FlaskClient):
         expected_time = moscow_time.strftime("%H:%M:%S")
         encoded_time = f"{expected_time}".encode()
 
-        assert False #encoded_time in res.data
+        assert encoded_time in res.data
         time.sleep(0.5)
 
     # Checking the content of the main page
