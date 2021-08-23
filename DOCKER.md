@@ -33,6 +33,9 @@
 > Building an image in multiple stages can allow for multiple versions of an image
 > to be created based on a common one. For instance, development, testing and production versions.
 
+- Avoiding unnecessary privileges
+> Changing the user from root is a good way to avoid unnecessary risks.
+
 ## References
 
 1. [Building minimal docker containers](
@@ -43,3 +46,5 @@
    https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 4. [Docker multi-stage builds](
    https://docs.docker.com/develop/develop-images/multistage-build/)
+5. [Top 20 Dockerfile best practices](
+   https://sysdig.com/blog/dockerfile-best-practices/)
