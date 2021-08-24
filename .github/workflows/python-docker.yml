@@ -2,6 +2,9 @@ name: Python Docker Image
 
 on:
   release:
+    tags:
+      - "python"
+      
 
 jobs:      
   publish-to-docker:
