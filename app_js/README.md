@@ -1,8 +1,9 @@
+
 # DevOps LAB 1 extra - "COOL CATZ" Javascript web application
 
 > A simple one-page app that displays cool catz.
 
-![image](https://user-images.githubusercontent.com/42554566/130663821-47f8e072-bf89-498b-9e75-b57d75da7d77.png)
+![Animation](https://user-images.githubusercontent.com/42554566/130672153-7ce31b0e-b27b-4a44-9ea3-4a941cd689f1.gif)
 
 ## Built With
 
