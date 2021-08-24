@@ -1,3 +1,5 @@
+[![Python application](https://github.com/Leosimetti/devops/actions/workflows/python-app.yml/badge.svg)](https://github.com/Leosimetti/devops/actions/workflows/python-app.yml)
+
 # DevOps LAB 1 - Python web application
 
 > A simple one-page app that shows current time in Moscow.
