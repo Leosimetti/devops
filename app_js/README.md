@@ -2,7 +2,7 @@
 
 > A simple one-page app that displays cool catz.
 
-![image]()
+![image](https://user-images.githubusercontent.com/42554566/130663821-47f8e072-bf89-498b-9e75-b57d75da7d77.png)
 
 ## Built With
 
