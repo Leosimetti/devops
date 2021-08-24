@@ -21,8 +21,6 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Install python and pip
-
 ```shell
 $ sudo apt install node
 ```
