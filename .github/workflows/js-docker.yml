@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./app_python
+        working-directory: ./app_js
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -34,11 +34,11 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./app_python/ 
-          file: ./app_python/Dockerfile
+          context: ./app_js/ 
+          file: ./app_js/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/devops-lab1-flask:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/devops-lab1-cool-catz:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
       - name: Image digest
