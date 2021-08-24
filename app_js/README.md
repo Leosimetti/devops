@@ -53,8 +53,8 @@ By default, the application will be available at [http://localhost:3000]()
 ### Run
 
 ```shell
-$ docker pull leosimonetti/devops-lab1-js
-$ docker run -p 3000:3000 leosimonetti/devops-lab1-js
+$ docker pull leosimonetti/devops-lab1-cool-catz
+$ docker run -p 3000:3000 leosimonetti/devops-lab1-cool-catz
 ```
 
 ### Build and run

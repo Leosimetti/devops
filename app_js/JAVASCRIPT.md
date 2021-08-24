@@ -4,4 +4,5 @@
 
 > Its syntax allows for a much cleaner and functional page markup.
 
-- kek
+- Setting the environment to production
+> NODE_ENV = production allows to ???
