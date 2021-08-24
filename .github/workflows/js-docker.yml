@@ -1,4 +1,4 @@
-name: Python Docker Image
+name: JS Docker Image
 
 on:
   release:
