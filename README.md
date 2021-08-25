@@ -1,4 +1,5 @@
 [![Python application](https://github.com/Leosimetti/devops/actions/workflows/python-app.yml/badge.svg)](https://github.com/Leosimetti/devops/actions/workflows/python-app.yml)
+[![Python Docker Image](https://github.com/Leosimetti/devops/actions/workflows/python-docker.yml/badge.svg)](https://github.com/Leosimetti/devops/actions/workflows/python-docker.yml)
 
 # DevOps LAB 1 - Python web application
 
