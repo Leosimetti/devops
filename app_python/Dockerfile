@@ -15,4 +15,3 @@ COPY ./main.py .
 RUN adduser tolya && chown -R tolya main.py
 USER tolya
 CMD ["python3",  "main.py"]
-

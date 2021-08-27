@@ -1,8 +1,9 @@
-from gevent.pywsgi import WSGIServer
-from src import create_app
 import os
 
-if __name__ == '__main__':
+from gevent.pywsgi import WSGIServer
+from src import create_app
+
+if __name__ == "__main__":
     app = create_app()
 
     PORT = int(os.environ.get("PORT", "5000"))

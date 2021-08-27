@@ -11,7 +11,7 @@ def test_app(client: FlaskClient):
         res = client.get("/time")
         assert res.status_code == 200
 
-        moscow_time = datetime.now(pytz.timezone('Europe/Moscow'))
+        moscow_time = datetime.now(pytz.timezone("Europe/Moscow"))
         expected_time = moscow_time.strftime("%H:%M:%S")
         encoded_time = f"{expected_time}".encode()
 

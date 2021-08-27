@@ -4,9 +4,9 @@ on:
   release:
     tags:
       - "python"
-      
 
-jobs:      
+
+jobs:
   publish-to-docker:
     runs-on: ubuntu-latest
     defaults:
@@ -26,7 +26,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
       - name: login
-        uses: docker/login-action@v1 
+        uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESSS_TOKEN }}
@@ -34,7 +34,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./app_python/ 
+          context: ./app_python/
           file: ./app_python/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true

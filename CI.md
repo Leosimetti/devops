@@ -18,9 +18,9 @@
 
 > This allows for the app to be tested in several environments with a minimal amount of code.
 
-- Using pre-commit hooks 
+- Using pre-commit hooks
 
-> Pre-commit are able to perform a number of useful actions on the code before it gets actually committed. 
+> Pre-commit are able to perform a number of useful actions on the code before it gets actually committed.
 
 ## Jenkins
 
