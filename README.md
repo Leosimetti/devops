@@ -56,7 +56,28 @@ Set the `PORT` and `HOST_IP` environmental variables to the desired values
 $ cd app_python
 $ pyhton3 main.py
 ```
-By default, the application will be available at [http://localhost:5000]() 
+
+By default, the application will be available at [http://localhost:5000]()
+
+## Docker
+
+### Run in Docker
+
+```shell
+$ docker pull leosimonetti/devops-lab1-flask
+$ docker run -p 5000:5000 leosimonetti/devops-lab1-flask
+```
+
+### Build and run
+
+```shell
+$ cd app_python
+$ docker build --tag clock_app --target build .
+$ docker run -p 5000:5000 clock_app
+```
+
+## Unit testing
+
 ### Run tests
 
 ```shell
@@ -64,25 +85,11 @@ $ cd app_python
 $ pytest
 ```
 
-## Docker
+### Run tests in Docker
 
-### Run in Docker
-```shell
-$ docker pull leosimonetti/devops-lab1-flask
-$ docker run -p 5000:5000 leosimonetti/devops-lab1-flask
-```
-
-### Build and run tests
 ```shell
 $ cd app_python
-$ docker build --target test . 
-```
-
-### Build and run
-```shell
-$ cd app_python
-$ docker build --tag clock_app --target build .
-$ docker run -p 5000:5000 clock_app
+$ docker build --target test .
 ```
 
 ## Author
