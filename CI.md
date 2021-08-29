@@ -18,11 +18,23 @@
 
 > This allows for the app to be tested in several environments with a minimal amount of code.
 
+- Optimizing actions and making them as minimal as possible
+
+> Doing so lessens the possibility to hit the 2000 minutes/month limit.
+
 - Using pre-commit hooks
 
 > Pre-commit are able to perform a number of useful actions on the code before it gets actually committed.
 
 ## Jenkins
+
+- Securing Jenkins with access control
+
+> This makes third parties unable to freely execute arbitrary code.
+
+- Trying to create clean builds
+
+> The most reliable builds are ones created directly from source code.
 
 - Avoid running Docker inside Docker (if Jenkins is running in a container)
 
@@ -48,3 +60,9 @@
 
 1. [Building minimal docker containers](
    https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/)
+2. [Are You Following These Jenkins Best Practices?](
+   https://www.lambdatest.com/blog/jenkins-best-practices/
+   )
+3. [Jenkins Best Practices](
+   https://wiki.jenkins.io/display/jenkins/jenkins+best+practices
+   )
