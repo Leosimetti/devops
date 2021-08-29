@@ -1,32 +1,57 @@
+def myImage
 pipeline {
-  agent {docker {image 'python:3.8-slim'}}
-  stages {  // Define the individual processes, or stages, of your CI pipeline
-      stage('Checkout') { // Checkout (git clone ...) the projects repository
-        steps {
-          checkout scm
+  agent any
+  environment {
+        DOCKER_REP = credentials('docker_repository')
+        DOCKER_USER = credentials('docker_user')
+  }
+
+  stages {
+    stage('Testing and linting') {
+      agent {
+        docker {
+          image 'python:3.8-slim'
+          reuseNode true
         }
       }
-      stage('Setup') { // Install any dependencies you need to perform testing
-        steps {
+      steps{
+        checkout scm
+
         dir('app_python'){
           script {
             sh """
             pip3 install -r requirements.txt
-            """
-          }
-        }
-        }
-      }
-      stage('Unit Testing') { // Perform unit testing
-        steps {
-        dir('app_python'){
-          script {
-            sh """
             pytest
+            pip3 install pylama
+            pylama ./app_python/src
             """
           }
         }
+      }
+    }
+
+    stage("Build image"){
+      agent any
+      steps{
+          checkout scm
+          dir('app_python'){
+              script{
+                  myImage = docker.build('$DOCKER_USER/$DOCKER_REP', "--target build .")
+              }
+          }
+      }
+    }
+
+    stage("Publish image"){
+      agent any
+      steps{
+        script{
+          withDockerRegistry(credentialsId: 'docker_pair', url: '') {
+            myImage.push()
+          }
         }
       }
+    }
+
   }
 }

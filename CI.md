@@ -24,9 +24,25 @@
 
 ## Jenkins
 
-- Avoid running Docker inside Docker (dind)
+- Avoid running Docker inside Docker (if Jenkins is running in a container)
 
-> Use sockets to communicate with the host docker via the `docker.sock` file.
+> When a need to run pipelines arises - use sockets to communicate with the host docker via the `docker.sock` file.
+
+- Using Jenkins credentials to store sensitive information
+
+> Hiding sensitive information in credentials is a better approach than leaving it hardcoded.
+
+- Properly handling string interpolation of sensitive information
+
+> "${SECRET}" is visible in the logs, while '$SECRET' is hidden
+
+- Specifying a branch for stages
+
+> Using `when{ branch 'x'}` allows for stages to trigger only on specific branches
+
+- Using `dir()` in steps
+
+> This command allows for better indication of the current working folder than `cd`
 
 ## References
 
