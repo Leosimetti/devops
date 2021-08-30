@@ -1,28 +1,43 @@
-import time
-from datetime import datetime
+import datetime
 
+import pytest
 import pytz
 from flask.testing import FlaskClient
+from freezegun import freeze_time
 
 
 def test_endpoints(client: FlaskClient):
+    # The available endpoints are accessed
     for endpoint in ["/", "/time"]:
         res = client.get(endpoint)
+        # A positive reply is expected
         assert res.status_code == 200
 
 
-def test_time(client: FlaskClient):
-    # Accessing the endpoint responsible for providing time
-    for _ in range(5):  # The loop is used to simulate a page refresh
-        res = client.get("/time")
-        assert res.status_code == 200
+@pytest.mark.parametrize(
+    "interval",
+    [
+        datetime.timedelta(minutes=5),
+        datetime.timedelta(days=50, minutes=40),
+        datetime.timedelta(hours=30),
+        datetime.timedelta(seconds=33),
+    ],
+)
+def test_time(client: FlaskClient, interval):
+    # Accessing the endpoint specifically responsible for providing time
+    with freeze_time(datetime.datetime.now() + interval):
+        for _ in range(3):  # The loop is used to simulate a page refresh
+            res = client.get("/time")
 
-        moscow_time = datetime.now(pytz.timezone("Europe/Moscow"))
-        expected_time = moscow_time.strftime("%H:%M:%S")
-        encoded_time = f"{expected_time}".encode()
+            # The time is successfully retrieved
+            assert res.status_code == 200
 
-        assert encoded_time in res.data
-        time.sleep(0.5)
+            moscow_time = datetime.datetime.now(pytz.timezone("Europe/Moscow"))
+            expected_time = moscow_time.strftime("%H:%M:%S")
+            encoded_time = f"{expected_time}".encode()
+
+            # The time corresponds to the actual time
+            assert encoded_time in res.data
 
 
 def test_name(client: FlaskClient):

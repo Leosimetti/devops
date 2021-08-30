@@ -21,7 +21,7 @@
 This framework was chosen because it is very lightweight and simple. I am also a little familiar with it. So, it turned
 out to be the best choice for such a simple one-page web app.
 
-## Best practices
+## Python Best practices
 
 - Using venv and requirements.txt
 
@@ -34,21 +34,58 @@ out to be the best choice for such a simple one-page web app.
 > Toml is a file format for configurations.
 > In this project it was used to store pytest arguments.
 
+- Following naming conventions
+
+> snake_case for methods; PascalCase for classes; ALL_CAPS for constants
+
+## Flask Best practices
+
+- Installing a proper server for Flask
+
+> The provided development server is not designed to used for
+> production. As a result, it is not very efficient, stable, and secure,
+
 - Using ENV variables for additional configurability.
 
 > Environmental variables are a good way to pass arguments.
 > In this project application IP and PORT are passed this way.
 
-- Following naming conventions
-
-> snake_case for methods; PascalCase for classes; ALL_CAPS for constants
+## Unit Testing Best practices
 
 - Using fixtures in tests
 
 > Fixtures allow for the code to be reused. In this case the `client`
 > fixture is used to make requests to the application.
 
-- Installing a proper server for Flask
+- Mocking values and functions
 
-> The provided development server is not designed to used for
-> production. As a result, it is not very efficient, stable, and secure,
+> Mocks aee able to "fake" functionality to make tests independent.
+> In this case `freezegun` is used to mock time in order to avoid waiting.
+
+- Parametrizing the tests
+
+> Parametrization enables a small piece of code to test many behaviours.
+
+- Scoping fixtures
+
+> It is possible to set a scope to a fixture, making it reset upon exiting this scope.
+> This is especially applicable to `yield` fixtures that are dependent on some resource's state.
+
+- Avoiding fixture modification at runtime
+
+> Fixture data modification is a bad idea, as doing so can cause unexpected behaviour
+> in case multiple functions are using the same fixture.
+
+- Running tests before actually committing the code
+
+> This action can be automated using a pre-commit hook that automatically runs tests before the code is committed.
+> (as it is done in this project)
+
+- Making test case names as descriptive and long as needed
+
+> Although it is a convention to keep function names short, doing so is not very applicable to tests,
+> as test functions names are not called explicitly and are only shown in the report.
+
+- Reasonably optimizing tests to make them run fast
+> Slow running tests are a hindrance to the development speed, as slow-running tests are less likely to be run.
+> Thus, it is important to get all tests to run fast. However, tested functionality should not be compromised in favor of speed.

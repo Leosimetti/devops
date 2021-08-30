@@ -2,7 +2,7 @@ import pytest
 from src import create_app
 
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def client():
     app = create_app()
 
