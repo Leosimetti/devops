@@ -5,6 +5,7 @@ __pycache__/
 .idea
 .pytest_cache
 */node_modules/
+.terraform
 
 # C extensions
 *.so
@@ -115,3 +116,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+terraform/virtualbox/virtualbox.box
+terraform/aws/.terraform.lock.hcl
+terraform/virtualbox/.terraform.lock.hcl
