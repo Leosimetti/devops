@@ -1,0 +1,22 @@
+---
+
+- name: install pip3
+  apt: name=python3-pip state=present
+
+- name: Install python-docker
+  pip:
+    name: docker-compose
+
+- name: Create a folder for docker-compose
+  file:
+    path: /opt/cool_clock
+    state: directory
+
+- name: Copy docker-compose.yml
+  copy:
+    src: docker-compose.yml
+    dest: /opt/cool_clock/docker-compose.yml
+
+- name: Start docker-compose
+  docker_compose:
+    project_src: /opt/cool_clock

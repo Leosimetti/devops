@@ -1,0 +1,6 @@
+version: '3.7'
+services:
+ cool_clock:
+   image: leosimonetti/devops-lab1-flask
+   ports:
+     - "80:5000"

@@ -1,8 +1,9 @@
 ---
-- name: Aboba
+- name: Deploy cool_clock in Docker
   hosts: all
+  roles: [docker]
   tasks:
-    - name: Install Docker
+    - name: Deploy app
       include_role:
-        name: docker
+        name: cool_clock
   become: yes

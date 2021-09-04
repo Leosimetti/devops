@@ -1,0 +1,4 @@
+---
+- name: Install python-docker
+  pip:
+    name: docker
