@@ -1,0 +1,8 @@
+---
+- name: Aboba
+  hosts: all
+  tasks:
+    - name: Install Docker
+      include_role:
+        name: docker
+  become: yes
