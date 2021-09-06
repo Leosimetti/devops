@@ -1,9 +1,5 @@
 ---
 - name: Deploy cool_clock in Docker
   hosts: all
-  roles: [docker]
-  tasks:
-    - name: Deploy app
-      include_role:
-        name: cool_clock
+  roles: [docker, cool_clock]
   become: yes

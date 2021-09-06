@@ -1,0 +1,6 @@
+version: '3.7'
+services:
+ cool_clock:
+   image: leosimonetti/{{app_docker_image}}:{{docker_tag}}
+   ports:
+     - "{{host_app_port}}:5000"

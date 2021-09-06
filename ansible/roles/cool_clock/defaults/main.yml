@@ -1,0 +1,5 @@
+app_docker_image: "devops-lab1-flask"
+host_app_port: "80"
+docker_tag: "latest"
+
+cool_clock_install_directory: "/opt/cool_clock"

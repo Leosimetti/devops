@@ -1,5 +1,4 @@
 ---
-
 - name: install pip3
   apt: name=python3-pip state=present
 
@@ -9,14 +8,14 @@
 
 - name: Create a folder for docker-compose
   file:
-    path: /opt/cool_clock
+    path: "{{cool_clock_install_directory}}"
     state: directory
 
-- name: Copy docker-compose.yml
-  copy:
-    src: docker-compose.yml
-    dest: /opt/cool_clock/docker-compose.yml
+- name: Generate docker-compose.yml
+  template:
+    src: docker-compose.yml.j2
+    dest: "{{cool_clock_install_directory}}/docker-compose.yml"
 
 - name: Start docker-compose
   docker_compose:
-    project_src: /opt/cool_clock
+    project_src: "{{cool_clock_install_directory}}"
