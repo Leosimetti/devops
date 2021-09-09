@@ -15,7 +15,12 @@ services:
       driver: "json-file"
       options:
         tag: "{{.ImageName}}|{{.Name}}|{{.ImageFullID}}|{{.FullID}}"
-
+        max-file: 2
+        max-size: 30m
+    deploy:
+      resources:
+        limits:
+          memory: 50M
   loki:
     image: grafana/loki:1.4.1
     ports:
@@ -23,6 +28,10 @@ services:
     command: -config.file=/etc/loki/local-config.yaml
     networks:
       - loki
+    deploy:
+      resources:
+        limits:
+          memory: 50M
 
   promtail:
     image: grafana/promtail:1.4.1
@@ -32,6 +41,10 @@ services:
     command: -config.file=/etc/promtail/docker-config.yml
     networks:
       - loki
+    deploy:
+      resources:
+        limits:
+          memory: 50M
 
   grafana:
     image: grafana/grafana:master
@@ -39,3 +52,22 @@ services:
       - "3000:3000"
     networks:
       - loki
+    deploy:
+      resources:
+        limits:
+          memory: 50M
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - "9090:9090"
+    networks:
+      - loki
+    deploy:
+      resources:
+        limits:
+          memory: 50M

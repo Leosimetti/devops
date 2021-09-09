@@ -33,3 +33,9 @@ $ sudo docker-compose up -d
 ### Grafana "Seeing" the Logs
 
 ![image](./monitoring/screenshots/Grafana.png)
+
+### Grafana Data Sources
+![image](./monitoring/screenshots/Data-Sources.png)
+
+### Grafana Dashboard
+![image](./monitoring/screenshots/Grafana-Dashboard.png)
