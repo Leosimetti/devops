@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: aboba
+  labels:
+    app: aboba
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3000
+      nodePort: 32767
+      protocol: TCP
+  selector:
+    app: aboba

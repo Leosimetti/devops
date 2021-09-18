@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aboba
+  labels:
+    app: aboba
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aboba
+  template:
+    metadata:
+      labels:
+        app: aboba
+    spec:
+      containers:
+      - name: aboba
+        image: leosimonetti/devops-lab1-cool-catz
+        ports:
+        - containerPort: 3000
