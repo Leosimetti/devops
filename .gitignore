@@ -119,3 +119,6 @@ dmypy.json
 terraform/virtualbox/virtualbox.box
 terraform/aws/.terraform.lock.hcl
 terraform/virtualbox/.terraform.lock.hcl
+ansible/inventory/hosts
+terraform/aws/terraform.tfstate.backup
+terraform/aws/terraform.tfstate
