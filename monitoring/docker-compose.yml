@@ -7,6 +7,8 @@ services:
 
   cool_clock:
     image: leosimonetti/devops-lab1-flask:latest
+    volumes:
+      - ./visits.txt:/visits.txt
     ports:
       - "80:5000"
     networks:
