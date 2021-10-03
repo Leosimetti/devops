@@ -1,11 +1,13 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "aboba.fullname" . }}
   labels:
     {{- include "aboba.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
+  serviceName: {{ include "aboba.fullname" . }}
+  podManagementPolicy: "Parallel"
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
@@ -37,28 +39,21 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-            - name: SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: secretthings
-                  key: secretkey
           volumeMounts:
-            - name: config-volume
-              mountPath: /config.json
-              subPath: config.json
+            - name: {{ .Values.volumeClaim.name }}
+              mountPath: {{ .Values.volumeClaim.mountPath }}
           ports:
             - name: http
               containerPort: 5000
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
+#          livenessProbe:
+#            httpGet:
+#              path: /
+#              port: ht
+#          readinessProbe:
+#            httpGet:
+#              path: /
+#              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
@@ -73,3 +68,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  volumeClaimTemplates:
+    - metadata:
+        name: {{ .Values.volumeClaim.name }}
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: {{ .Values.volumeClaim.storage }}

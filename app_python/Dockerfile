@@ -14,4 +14,5 @@ FROM base as build
 COPY ./main.py .
 RUN adduser tolya && chown -R tolya main.py
 USER tolya
+EXPOSE 5000
 CMD ["python3",  "main.py"]

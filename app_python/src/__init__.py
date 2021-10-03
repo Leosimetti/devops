@@ -18,14 +18,14 @@ def create_app():
 
     @app.route("/visits")
     def visits():
-        with open("/visits.txt", "r") as f:
+        with open("/visits/visits.txt", "r") as f:
             c = f.readlines()
             tag1 = '<span style="white-space: pre-line">'
             return tag1 + "\n".join(c) + "</span>"
 
     @app.route("/")
     def main_page():
-        with open("/visits.txt", "a") as f:
+        with open("/visits/visits.txt", "a") as f:
             f.write(f"[{datetime.datetime.now()}] {request.remote_addr} \n")
         return render_template("index.html", current_time=get_moscow_time())
 
