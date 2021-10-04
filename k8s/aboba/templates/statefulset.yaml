@@ -29,10 +29,6 @@ spec:
       serviceAccountName: {{ include "aboba.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      volumes:
-        - name: config-volume
-          configMap:
-            name: config.json
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -42,20 +38,40 @@ spec:
           volumeMounts:
             - name: {{ .Values.volumeClaim.name }}
               mountPath: {{ .Values.volumeClaim.mountPath }}
+            - name: papka
+              mountPath: /papka
           ports:
             - name: http
               containerPort: 5000
               protocol: TCP
-#          livenessProbe:
-#            httpGet:
-#              path: /
-#              port: ht
-#          readinessProbe:
-#            httpGet:
-#              path: /
-#              port: http
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      initContainers:
+        - name: install
+          image: busybox
+          command:
+            - wget
+            - "-O"
+            - "/papka/index.html"
+            - http://info.cern.ch
+          volumeMounts:
+            - name: papka
+              mountPath: "/papka"
+      dnsPolicy: Default
+      volumes:
+        - name: config-volume
+          configMap:
+            name: config.json
+        - name: papka
+          emptyDir: {}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
